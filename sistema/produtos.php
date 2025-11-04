@@ -1,6 +1,6 @@
 <?php 
     include 'conexao.php';
-    $sql = $pdo->query("SELECT * FROM Aluno");
+    $sql = $pdo->query("SELECT * FROM Produto");
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +22,13 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Aluno</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">Data de Nascimento</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Data de Lançamento</th>
+                    <th scope="col">Desconto</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Excluir</th>
                 </tr>
@@ -36,12 +40,16 @@
                 <tr>
                     <th scope="row"><?php echo $linha['id']?></th>
                     <td><?php echo $linha['nome']?></td>
-                    <td><?php echo $linha['email'] ?></td>
+                    <td><?php echo $linha['descricao'] ?></td>
+                    <td><?php echo $linha['preco'] ?></td>
+                    <td><?php echo $linha['tipo'] ?></td>
+                    <td><?php echo $linha['categoria'] ?></td>
                     <td><?php 
-                        $partes = explode('-', $linha['data_nascimento']);
+                        $partes = explode('-', $linha['data_lancamento']);
                         $data = "".$partes[2]."/".$partes[1]."/".$partes[0];
                         echo $data ?>
                     </td>
+                    <td><?php echo $linha['desconto_usados'] ?></td>
                     <td><form action="editar.php" method="POST">
                         <button class="btn btn-primary" name="btnEditar" 
                         value="<?php echo $linha['id'];?>">Editar</button>

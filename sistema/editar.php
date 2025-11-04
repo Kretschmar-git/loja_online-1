@@ -1,7 +1,7 @@
 <?php 
 include 'conexao.php';
 $id = $_POST['btnEditar'];
-$sql = $pdo->prepare("SELECT * FROM Aluno WHERE id = ?");
+$sql = $pdo->prepare("SELECT * FROM Produto WHERE id = ?");
 $sql->execute([$id]);
 $linha = $sql->fetch(PDO::FETCH_ASSOC);
 ?>
@@ -15,7 +15,7 @@ $linha = $sql->fetch(PDO::FETCH_ASSOC);
     <title>Editar Aluno</title>
 </head>
 <body>
-    <h1>Editar o aluno: <?php echo $linha['nome']?></h1>
+    <h1>Editar o produto: <?php echo $linha['nome']?></h1>
 
     <div class="container">
         <form action="atualizar.php" method="POST">
@@ -25,11 +25,23 @@ $linha = $sql->fetch(PDO::FETCH_ASSOC);
             <input type="text" name="nome" 
             value="<?php echo $linha['nome']?>">
 
-            <input type="email" name="email"
-            value="<?php echo $linha['email']?>">
+            <input type="text" name="descricao"
+            value="<?php echo $linha['descricao']?>">
+
+            <input type="text" name="preco"
+            value="<?php echo $linha['preco']?>">
+
+            <input type="text" name="tipo"
+            value="<?php echo $linha['tipo']?>">
+            
+            <input type="text" name="categoria"
+            value="<?php echo $linha['categoria']?>">
 
             <input type="date" name="data"
-            value="<?php echo $linha['data_nascimento']?>">
+            value="<?php echo $linha['data_lancamento']?>">
+
+            <input type="text" name="desconto"
+            value="<?php echo $linha['desconto_usados']?>">
 
             <input type="submit" name="btnSalvar" value="Salvar"
             class="btn btn-primary">
