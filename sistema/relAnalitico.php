@@ -1,3 +1,11 @@
+<?php 
+    include 'conexao.php';
+
+    // 1. Média dos precos de todos os produtos
+    $sql = $pdo->query("SELECT TRUNCATE(AVG(preco), 2) as media FROM Produto");
+    $mediaPrecoProdutos = $sql->fetch(PDO::FETCH_ASSOC)['media'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -27,22 +35,26 @@
 <body>
 
 <div class="container py-5">
-    <h1 class="text-center mb-5">Painel de Controle</h1>
+    <h1 class="text-center mb-5">Relatório Analítico</h1>
 
-    <div class="row g-4">
+    <div class="row g-4 mb-5">
         <!-- Relatórios -->
         <div class="col-12 col-md-6 col-lg-3">
-            <a href="relProdutosLoja.php" class="text-decoration-none">
-                <div class="card dashboard-card shadow-sm h-100">
+                <div class="card shadow-sm h-100">
                     <div class="card-body text-center">
-                        <div class="icon-placeholder mb-3">
-                            📊
-                        </div>
-                        <h5 class="card-title">Relatórios</h5>
-                        <p class="card-text text-muted">Visualize métricas e análises</p>
+                        <h5 class="card-title">Média dos preços de todos os produtos</h5>
+                        <p class="card-text text-muted"><?php echo($mediaPrecoProdutos) ?></p>
                     </div>
                 </div>
-            </a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                Média dos preços de todos os produtos
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">R$ <?= $mediaPrecoProdutos ?></h5>
+            </div>
         </div>
 
         <!-- Cadastro de Produtos -->
