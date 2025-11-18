@@ -38,14 +38,14 @@
     <h1 class="text-center mb-5">Relatório Analítico</h1>
 
     <div class="row g-4 mb-5">
-        <!-- Relatórios -->
-        <div class="col-12 col-md-6 col-lg-3">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Média dos preços de todos os produtos</h5>
-                        <p class="card-text text-muted"><?php echo($mediaPrecoProdutos) ?></p>
-                    </div>
-                </div>
+
+        <div class="card">
+            <div class="card-header">
+                Média dos preços de todos os produtos
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">R$ <?= $mediaPrecoProdutos ?></h5>
+            </div>
         </div>
 
         <div class="card">
@@ -57,78 +57,13 @@
             </div>
         </div>
 
-        <!-- Cadastro de Produtos -->
-        <div class="col-12 col-md-6 col-lg-3">
-            <a href="produtos.php" class="text-decoration-none">
-                <div class="card dashboard-card shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <div class="icon-placeholder mb-3">
-                            📦
-                        </div>
-                        <h5 class="card-title">Produtos</h5>
-                        <p class="card-text text-muted">Cadastre e gerencie produtos</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- Cadastro de Lojas -->
-        <div class="col-12 col-md-6 col-lg-3">
-            <a href="lojas.php" class="text-decoration-none">
-                <div class="card dashboard-card shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <div class="icon-placeholder mb-3">
-                            🏪
-                        </div>
-                        <h5 class="card-title">Lojas</h5>
-                        <p class="card-text text-muted">Cadastre e gerencie lojas</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- Cadastro de Características -->
-        <div class="col-12 col-md-6 col-lg-3">
-            <a href="caracteristicas.php" class="text-decoration-none">
-                <div class="card dashboard-card shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <div class="icon-placeholder mb-3">
-                            ⚙️
-                        </div>
-                        <h5 class="card-title">Características</h5>
-                        <p class="card-text text-muted">Tipos, categorias e atributos</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-         <!-- Relatório Analítico -->
-        <div class="col-12 col-md-6 col-lg-3">
-            <a href="relatorio_analitico.php" class="text-decoration-none">
-                <div class="card dashboard-card shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <div class="icon-placeholder mb-3">
-                            🏷️
-                        </div>
-                        <h5 class="card-title">Relatório Analítico</h5>
-                        <p class="card-text text-muted">Visualize métricas e análises</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-         <!-- Relatório Analítico -->
-        <div class="col-12 col-md-6 col-lg-3">
-            <a href="relAnalitico.php" class="text-decoration-none">
-                <div class="card dashboard-card shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <div class="icon-placeholder mb-3">
-                            🏷️
-                        </div>
-                        <h5 class="card-title">Relatório Analítico</h5>
-                        <p class="card-text text-muted">Visualize métricas e análises</p>
-                    </div>
-                </div>
-            </a>
+        <div class="card">
+            <div class="card-header">
+                Média dos preços de todos os produtos
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">R$ <?= $mediaPrecoProdutos ?></h5>
+            </div>
         </div>
     </div>
 </div>
