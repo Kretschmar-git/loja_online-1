@@ -82,6 +82,9 @@ $lojasComMaisDe20 = $stmt6->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body class="bg-light">
     <div class="container py-5">
+        <a href="index.php" class="text-decoration-none">
+            <h1 class="display-5 text-primary">Página Principal</h1>
+        </a>
         <h1 class="text-center mb-5 display-5 fw-bold">Relatório com Funções Embutidas do MySQL</h1>
 
         

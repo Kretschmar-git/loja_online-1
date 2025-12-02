@@ -72,6 +72,9 @@ $descricaoCaracteristicas = $sql->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
     <div class="container py-5">
+        <a href="index.php" class="text-decoration-none">
+            <h1 class="display-5 text-primary">Página Principal</h1>
+        </a>
         <h1 class="text-center mb-5">Relatório Analítico</h1>
 
         <div class="row g-4 mb-5">

@@ -1,6 +1,6 @@
 <?php 
     include 'conexao.php';
-    $sql = $pdo->query("SELECT * FROM Produto");
+    $sql = $pdo->query("SELECT * FROM Loja");
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,6 @@
 <body>
 
     <div class="container">
-        
         <a href="index.php" class="text-decoration-none">
             <h1 class="display-5 text-primary">Página Principal</h1>
         </a>
@@ -26,12 +25,13 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Preço</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Data de Lançamento</th>
-                    <th scope="col">Desconto</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">rua</th>
+                    <th scope="col">numero</th>
+                    <th scope="col">bairro</th>
+                    <th scope="col">cep</th>
+                    <th scope="col">complemento</th>
+                    <th scope="col">cidade</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Excluir</th>
                 </tr>
@@ -43,22 +43,19 @@
                 <tr>
                     <th scope="row"><?php echo $linha['id']?></th>
                     <td><?php echo $linha['nome']?></td>
-                    <td><?php echo $linha['descricao'] ?></td>
-                    <td><?php echo $linha['preco'] ?></td>
-                    <td><?php echo $linha['tipo'] ?></td>
-                    <td><?php echo $linha['categoria'] ?></td>
-                    <td><?php 
-                        $partes = explode('-', $linha['data_lancamento']);
-                        $data = "".$partes[2]."/".$partes[1]."/".$partes[0];
-                        echo $data ?>
-                    </td>
-                    <td><?php echo $linha['desconto_usados'] ?></td>
-                    <td><form action="editar.php" method="POST">
+                    <td><?php echo $linha['telefone'] ?></td>
+                    <td><?php echo $linha['rua'] ?></td>
+                    <td><?php echo $linha['numero'] ?></td>
+                    <td><?php echo $linha['bairro'] ?></td>
+                    <td><?php echo $linha['cep'] ?></td>
+                    <td><?php echo $linha['complemento'] ?></td>
+                    <td><?php echo $linha['cidade'] ?></td>
+                    <td><form action="editar_loja.php" method="POST">
                         <button class="btn btn-primary" name="btnEditar" 
                         value="<?php echo $linha['id'];?>">Editar</button>
                     </form></td>
 
-                    <td><form action="excluir.php" method="POST"> 
+                    <td><form action="excluir_loja.php" method="POST"> 
                         <button class="btn btn-danger" name="btnExcluir" 
                         value="<?php echo $linha['id'];?>">Excluir</button>
                     </form></td>
@@ -71,58 +68,63 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6"> 
 
-                    <form action="adicionar.php" method="POST">
+                    <form action="adicionar_loja.php" method="POST">
                         <h3 class="mb-4">Cadastro de Produto</h3>
                         
                         <div class="mb-3">
                             <label for="txtNome" class="form-label">Nome do Produto</label>
                             <input type="text" name="txtNome" id="txtNome"
                                 class="form-control"
-                                placeholder="Digite o nome do produto.." required>
+                                placeholder="Digite o nome da loja.." required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="txtDescricao" class="form-label">Descrição do Produto</label>
-                            <input type="text" name="txtDescricao" id="txtDescricao"
+                            <label for="txtTelefone" class="form-label">Telefone</label>
+                            <input type="text" name="txtTelefone" id="txtTelefone"
                                 class="form-control"
-                                placeholder="Digite a descrição do produto.." required>
+                                placeholder="Digite o telefone.." required>
                         </div>
                         
                         <div class="mb-3">
-                            <label for="txtPreco" class="form-label">Preço</label>
-                            <input type="number" name="txtPreco" id="txtPreco"
+                            <label for="txtRua" class="form-label">Rua</label>
+                            <input type="text" name="txtRua" id="txtRua"
                                 class="form-control"
-                                placeholder="Digite o preço do produto.."
-                                step="0.01" min="0"> 
+                                placeholder="Digite a rua da loja.."> 
                         </div>
 
                         <div class="mb-3">
-                            <label for="txtTipo" class="form-label">Tipo</label>
-                            <input type="text" name="txtTipo" id="txtTipo"
+                            <label for="txtNumero" class="form-label">Número</label>
+                            <input type="text" name="txtNumero" id="txtNumero"
                                 class="form-control"
-                                placeholder="Digite o tipo do produto..">
+                                placeholder="Digite o número da loja..">
                         </div>
 
                         <div class="mb-3">
-                            <label for="txtCategoria" class="form-label">Categoria</label>
-                            <input type="text" name="txtCategoria" id="txtCategoria"
+                            <label for="txtBairro" class="form-label">Bairro</label>
+                            <input type="text" name="txtBairro" id="txtBairro"
                                 class="form-control"
-                                placeholder="Digite a categoria do produto..">
+                                placeholder="Digite o bairro..">
                         </div>
 
                         <div class="mb-3">
-                            <label for="txtData" class="form-label">Data de Lançamento</label>
-                            <input type="date" name="txtData" id="txtData"
+                            <label for="txtCep" class="form-label">Cep</label>
+                            <input type="text" name="txtCep" id="txtCep"
                                 class="form-control"
-                                placeholder="Digite a data de lançamento..">
+                                placeholder="Digite o cep..">
                         </div>
 
                         <div class="mb-3">
-                            <label for="txtDesconto" class="form-label">Descontos Usados</label>
-                            <input type="number" name="txtDesconto" id="txtDesconto"
+                            <label for="txtComplemento" class="form-label">Complemento</label>
+                            <input type="text" name="txtComplemento" id="txtComplemento"
                                 class="form-control"
-                                placeholder="Digite os descontos usados.."
-                                step="0.01" min="0">
+                                placeholder="Digite o complemento..">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtCidade" class="form-label">Cidade</label>
+                            <input type="text" name="txtCidade" id="txtCidade"
+                                class="form-control"
+                                placeholder="Digite a cidade..">
                         </div>
 
                         <input type="submit" value="Salvar" name="btnSalvar" class="btn btn-success">

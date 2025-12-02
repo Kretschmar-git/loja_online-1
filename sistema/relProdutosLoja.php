@@ -38,11 +38,15 @@
     <title>Página Principal</title>
 </head>
 <body>
+        
     <div class="container mt-4">
+        <a href="index.php" class="text-decoration-none">
+            <h1 class="display-5 text-primary">Página Principal</h1>
+        </a>
         <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
     <h1 class="display-5 fw-bold">Produtos por Loja</h1>
     <span class="badge bg-secondary"><?= $sql->rowCount() ?> produtos encontrados</span>
-</div>
+    </div>
 
         <form action="relProdutosLoja.php" method="POST" class="mb-4">
             <div class="row g-2">
@@ -89,7 +93,7 @@
                     while($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                 <tr>
-                    <td><?= htmlspecialchars($linha['nomeprod']) ?></td>
+                    <td><?= htmlspecialchars($linha['nomeProd']) ?></td>
                     <td><?= htmlspecialchars($linha['descricao']) ?></td>
                     <td><?= number_format($linha['preco'], 2, ',', '.') ?></td>
                     <td><?= htmlspecialchars($linha['tipo']) ?></td>
