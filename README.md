@@ -2,10 +2,10 @@
 
 **Disciplina:** Banco de Dados  
 **Curso:** Técnico em Desenvolvimento de Sistemas  
-**Aluno(a):** [Seu Nome]  
-**Turma:** [Sua Turma]  
-**Professor:** [Nome do Professor]
-**Data de Entrega:** [dd/mm/aaaa]  
+**Aluno(a):** [Lucas kretschmar]  
+**Turma:** [Desenvolvimento de Sistemas]  
+**Professor:** [Davi]
+**Data de Entrega:** [12/12/2025]  
 
 ---
 
