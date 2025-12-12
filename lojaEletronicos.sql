@@ -53,6 +53,42 @@ CREATE TABLE Estoque (
     FOREIGN KEY (id_loja) REFERENCES Loja(id)
 );
 
+USE loja_online;
+
+-- 1. Criação da tabela 'Cliente'
+CREATE TABLE Cliente (
+    id INT(4) AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE, -- Garante que não existam dois clientes com o mesmo email
+    telefone VARCHAR(20),
+    data_cadastro DATE DEFAULT (CURRENT_DATE), -- Pega a data atual do servidor automaticamente
+    senha_hash VARCHAR(255) NOT NULL -- Armazena a senha criptografada, nunca em texto puro
+);
+
+-- 2. Criação da tabela 'Venda'
+CREATE TABLE Venda (
+    id INT(4) AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT(4) NOT NULL,
+    id_loja INT(4) NOT NULL,
+    data_venda DATETIME DEFAULT CURRENT_TIMESTAMP, -- Pega data e hora exata da inserção
+    valor_total DECIMAL(10, 2) DEFAULT 0.00, -- Será atualizado via aplicação ou trigger
+    
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id),
+    FOREIGN KEY (id_loja) REFERENCES Loja(id)
+);
+
+-- 3. Criação da tabela 'ItemVenda'
+CREATE TABLE ItemVenda (
+    id INT(4) AUTO_INCREMENT PRIMARY KEY,
+    id_venda INT(4) NOT NULL,
+    id_produto INT(4) NOT NULL,
+    quantidade INT(6) NOT NULL,
+    preco_unitario DECIMAL(10, 2) NOT NULL, -- Importante: Salva o preço da época da venda
+    
+    FOREIGN KEY (id_venda) REFERENCES Venda(id),
+    FOREIGN KEY (id_produto) REFERENCES Produto(id)
+);
+
 -- --------------------------------------------------------------------------------
 -- VIEWS DO BANCO
 CREATE VIEW viewProdutosLoja AS

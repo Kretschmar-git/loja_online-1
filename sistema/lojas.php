@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Verifica se está logado
+if (!isset($_SESSION['id_cliente'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <?php 
     include 'conexao.php';
     $sql = $pdo->query("SELECT * FROM Loja");

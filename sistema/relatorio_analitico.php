@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+// Verifica se está logado
+if (!isset($_SESSION['id_cliente'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+<?php
 include 'conexao.php';
 
 // 1. Quantidade total de produtos diferentes
